@@ -4,6 +4,8 @@ metadata:
   name: {{ .Release.Name }}-nginx
   labels:
     app: nginx
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   type: {{ .Values.service.type }}
   ports:
