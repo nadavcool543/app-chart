@@ -7,6 +7,11 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
+   strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
